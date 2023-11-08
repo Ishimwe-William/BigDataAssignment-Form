@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include 'index.html' %}
+</head>
+<body>
+    <h4>Student List</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Telephone</th>
+            <th>Nationality</th>
+            <th>Date of Birth</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.phone }}</td>
+            <td>{{ student.nationality }}</td>
+            <td>{{ student.dob }}</td>
+            <td>{{ student.createdAt }}</td>
+            <td>
+                <a href="{% url 'edit_student' student.id %}">Edit</a>
+                <a href="{% url 'confirm_delete_student' student.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include 'index.html' %}
+</head>
+<body>
+<h4>Add Student</h4>
+<form method="post">
+    {% csrf_token %}
+    {{ form.name.label_tag }}
+    {{ form.name }}
+    <label>Telephone:</label>
+    {{ form.phone }}
+    {{ form.nationality.label_tag }}
+    {{ form.nationality }}
+    <label>Date of Birth: <strong>{{ form.dob.value }}</strong>  </label>
+    <input type="date" name="dob" id="id_dob" required>
+    <input type="hidden" name="id" value="{{ student.id }}">
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+</body>
+</html>

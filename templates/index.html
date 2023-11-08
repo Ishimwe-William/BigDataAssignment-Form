@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header style="height: 190px">
+    <div style="padding: 5px">
+            <img src="{% static 'img/AUCA-logo-wide-webblue-2.png' %}" style="background: white">
+    </div>
+    <nav style="padding: 5px">
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'student_list' %}">Student List</a>
+    <a href="{% url 'add_student' %}">Create Student</a>
+    </nav>
+</header>
+</body>
+</html>
