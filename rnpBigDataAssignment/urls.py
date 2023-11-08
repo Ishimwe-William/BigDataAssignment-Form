@@ -18,5 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Map the '/admin/' URL to the Django admin site
+
     path('', include('rnp.urls'))
+    # Include the URL patterns from the 'rnp.urls' module when the URL is at the root ('/')
 ]

@@ -5,8 +5,13 @@
     <title>Student List</title>
 
     {% load static %}
+    <!-- Load static files (e.g., CSS) using Django's static template tag -->
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {# Link to a CSS stylesheet using the {% static %} template tag #}
+
     {% include 'index.html' %}
+    <!-- Include the content of 'index.html' in this HTML template -->
 </head>
 <body>
     <h4>Student List</h4>
@@ -20,14 +25,17 @@
             <th>Actions</th>
         </tr>
         {% for student in students %}
+        <!-- Loop through the list of students -->
         <tr>
             <td>{{ student.name }}</td>
+            <!-- Display the student's name -->
             <td>{{ student.phone }}</td>
             <td>{{ student.nationality }}</td>
             <td>{{ student.dob }}</td>
             <td>{{ student.createdAt }}</td>
             <td>
                 <a href="{% url 'edit_student' student.id %}">Edit</a>
+                <!-- Display a link to edit the student's information -->
                 <a href="{% url 'confirm_delete_student' student.id %}">Delete</a>
             </td>
         </tr>

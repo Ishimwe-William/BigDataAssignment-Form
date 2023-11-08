@@ -4,16 +4,27 @@
     <title>Confirm Deletion</title>
 
     {% load static %}
+    <!-- Load static files (e.g., CSS,images,...) using Django's static template tag -->
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        {% include 'index.html' %}
+
+    {% include 'index.html' %}
+    <!-- Include the content of 'index.html' in this HTML template -->
 </head>
 <body>
     <h4>Confirm Deletion</h4>
     <p>Are you sure you want to delete the student "{{ student.name }}"?</p>
+    <!-- Display a message asking the user to confirm the deletion of a student with a dynamic name -->
+
     <form method="post" action="{% url 'delete_student' student.id %}">
+
         {% csrf_token %}
+        <!-- Include a CSRF token to protect against Cross-Site Request Forgery (CSRF) attacks -->
+
         <button type="submit">Delete</button>
     </form>
+
     <a href="{% url 'student_list' %}">Cancel</a>
+    <!-- Display a link to cancel the deletion and return to the student list page -->
 </body>
 </html>
